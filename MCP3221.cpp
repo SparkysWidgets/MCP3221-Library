@@ -38,7 +38,7 @@ int MCP3221::readI2CADC(void) {
   if (Wire.available()) 
   {
     //taking the bitshift approach with a single variable
-    //we are reading our MSB first so we can simple shift it 8 bits over, then read again
+    //we are reading our MSB first so we can simply shift it 8 bits over, then read again
     result = Wire.read();
     result = result<<8;
     result += Wire.read();
@@ -57,8 +57,16 @@ int MCP3221::readI2CADC(void) {
 int MCP3221::calcMillivolts() {
 
   int mV = readI2CADC();
-  mV = (((float)mV/4095)*_adcVRef);
+  mV = (((float)mV/4095)*_adcVRef); //MCP3221 is 12bit datasheet reports a full range of 4095 
   return (int)mV;
+}
+
+//Overloaded to accepted a raw iput
+int MCP3221::calcMillivolts(int rawADC) {
+
+	int mV = rawADC;
+	mV = (((float)mV / 4095)*_adcVRef); //MCP3221 is 12bit datasheet reports a full range of 4095 
+	return (int)mV;
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -70,9 +78,42 @@ int MCP3221::calcMillivolts() {
 
 int MCP3221::calcRollingAVG() {
 
-  int AVG, temp;
-  temp = (((float)temp/4095)*_adcVRef);
-  return AVG;
+  uint16_t average, sum = 0;
+  uint8_t i;
+
+  //Part one drop the last reading and refactor array
+  for (i = 1; i<NUMSAMPLES; i++)
+  {
+	  _samples[i - 1] = _samples[i];
+  }
+  //Add in the nweest sample in last place essentially the entire array is shifted now!
+  //Maybe a better way to do this?
+  _samples[NUMSAMPLES - 1] = readI2CADC();
+
+  //Calculate our sum from the array with new data in and oldest data point dropped
+  for (i = 0; i<NUMSAMPLES; i++)
+  {
+	  sum += _samples[i];
+  }
+  //and now finally our average
+  average = sum / NUMSAMPLES;
+
+  return average;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/*!
+
+
+*/
+/////////////////////////////////////////////////////////////////////////////
+
+int MCP3221::calcEMAVG() {
+
+	static uint16_t exponential_average = readI2CADC();
+
+	exponential_average = (ALPHA*(uint32_t)readI2CADC() + (POWER - ALPHA)*(uint32_t)exponential_average) / POWER;
+	return exponential_average;
 }
 
 

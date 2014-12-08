@@ -35,7 +35,9 @@ class MCP3221 {
 
   int readI2CADC(void);
   int calcMillivolts(void);
-  int calcRollingAVG(void);
+  int calcMillivolts(int);
+  int calcRollingAVG(void); //Standart moving average inplementation
+  int calcEMAVG(void); //this is our exponetional moving average which approximates a rolling/moving average using only the current and previous datapoints instead of arrays of points
 
  private:
  	uint8_t I2CADCAddress;

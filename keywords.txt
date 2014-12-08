@@ -1,20 +1,21 @@
 #######################################
-# Syntax Coloring Map for NewSoftSerial
+# Syntax Coloring Map for MCP3221
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-max6675	KEYWORD1
+mcp3221	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-readCelsius	KEYWORD2
-readFahrenheit	KEYWORD2
-readFarenheit	KEYWORD2
+readI2CADC		KEYWORD2
+calcMillivolts	KEYWORD2
+calcRollingAVG	KEYWORD2
+calcEMAVG		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
