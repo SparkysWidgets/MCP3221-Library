@@ -126,7 +126,7 @@ int MCP3221::calcEMAVG() {
   power switch IC combined with 2 sources could prove to be valuable in certain situations
 */
 /////////////////////////////////////////////////////////////////////////////
-int MCP3221::updateVRef() 
+void MCP3221::updateVRef(int adcVRef)
 {
   _adcVRef = adcVRef;
 }
