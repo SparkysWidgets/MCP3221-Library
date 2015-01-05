@@ -4,9 +4,9 @@
 MCP3221 Basic usage example file
 I2C Driver for Microchip's MCP3221 by Ryan Edwards, Sparkys Widgets
 
-Usage is pretty straightforward I provide some basice methods to get to the 12bit data from the adc
+Usage is pretty straightforward I provide some basic methods to get to the 12bit data from the adc
 convert to millivolts based on a reference voltage that is passed in to the constructor and some simple smoothing methods
-As alwys everyone should crete their own smoothing/dsp to match their projects needs.
+As always everyone should create their own smoothing/dsp to match their projects needs.
 
 I invest a lot of time and resources providing open source hardware, software, and tutorials
 Please help support my efforts by purchasing products from www.sparkyswidgets.com, donating some time
@@ -31,7 +31,7 @@ void setup()
 {
 	//The library assume you will initialize the wire library mine as well do this here
 	Wire.begin();
-	//initialize and run anything that needs to be performed proir to the main loop executing for the first time
+	//initialize and run anything that needs to be performed prior to the main loop executing for the first time
 	Serial.begin(9600);
 	Serial.println("MCP3221 Driver Library Usage Example");
 }
@@ -58,8 +58,6 @@ void loop()
 	Serial.print("|");
 	Serial.print(adcCompare);
 	Serial.println("|");
-	delay(500); //give us jsut a bit of time this can be adjust to your needs to test with better to use a non blocking method but this is a simple example
+	delay(500); //give us just a bit of time this can be adjust to your needs to test with better to use a non blocking method but this is a simple example
 }
-
-
 

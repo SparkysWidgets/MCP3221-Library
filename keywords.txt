@@ -16,6 +16,7 @@ readI2CADC		KEYWORD2
 calcMillivolts	KEYWORD2
 calcRollingAVG	KEYWORD2
 calcEMAVG		KEYWORD2
+updateVRef		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

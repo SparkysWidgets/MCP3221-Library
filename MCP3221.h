@@ -31,13 +31,15 @@
 
 class MCP3221 {
  public:
-  MCP3221(uint8_t adcAddress, int adcVRef);
+  MCP3221(uint8_t adcAddress, int adcVRef); //Overload for only this class initialization
 
   int readI2CADC(void);
-  int calcMillivolts(void);
-  int calcMillivolts(int);
-  int calcRollingAVG(void); //Standart moving average inplementation
-  int calcEMAVG(void); //this is our exponetional moving average which approximates a rolling/moving average using only the current and previous datapoints instead of arrays of points
+  float calcMillivolts(void);
+  float calcMillivolts(int);
+  int calcRollingAVG(void); //Standard moving average implementation
+  int calcEMAVG(void); //this is our exponential moving average which approximates a rolling/moving average using only the current and previous datapoints instead of arrays of points
+
+  void updateVRef(int adcVRef);
 
  private:
  	uint8_t I2CADCAddress;
