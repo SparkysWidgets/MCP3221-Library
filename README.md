@@ -20,6 +20,7 @@ Method Info
 - calcMillivolts, calls readI2CADC and uses VREF value that was input during instance creation
 - calcRollingAVG, Takes current raw adc reading and adds it to a storage array(default is 10 data points), th oldest data point is dropped and array is shifted to move with readings
 - calcEMAVG, approximates a rolling average by using an ALPHA coefficient and a power of 2 POWER for division, only needs a current reading which is weighted by ALPHA is pass through
+- updateVRef in case a class which inherits from this one can update the vref should it be necessary
 
 
 Average and Smoothing Info
