@@ -5,6 +5,7 @@ Welcome To: MCP3221 Driver Library
 ##### Note: This can be used with any AVR/Arduino that needs to interface with hardware that is based on an MCP3221
 
 Originally written as a simple interface this driver has been extended with a couple simple averaging methods, and makes taking readings very easy.
+This class is extended by the MiniLib class which uses this and a few other interfaces extensively!
 
 Class Info
 -------------------------
@@ -29,7 +30,7 @@ Average and Smoothing Info
 ##### Quick list of Smoothing methods used in this driver
 - Rolling/Moving average, uses an array to store data points, oldest is removed and current reading is added in as array is shifted to move with dataset
 - Exponential moving average using power of 2 division(POWER) to avoid unnecessary float math, approximates a moving average while only using current data point
-
+- Number of rolling average samples have been increased to 20 will wait to see if this is adequate or not.
 
 License Info
 -------------------------

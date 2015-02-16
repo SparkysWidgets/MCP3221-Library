@@ -25,7 +25,7 @@
 	
 #include <Wire.h>
 
-#define NUMSAMPLES 10 //Combined alpha approximation plus a storage based moving average,
+#define NUMSAMPLES 20 //Combined alpha approximation plus a storage based moving average,
 #define POWER 256 //we will limit ourselves to power of 2 division (i.e no floating point)
 #define ALPHA 178 // pick an integer from 1-256 1 = slowest change, 256 = raw change (no filter)  
 
