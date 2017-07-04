@@ -1,8 +1,9 @@
-Welcome To: MCP3221 Driver Library
+Welcome To: SW_MCP3221 Driver Library
 ================================
 
 
 ##### Note: This can be used with any AVR/Arduino that needs to interface with hardware that is based on an MCP3221
+Updated: 2017, July renamed to separate from the other library
 
 Originally written as a simple interface this driver has been extended with a couple simple averaging methods, and makes taking readings very easy.
 This class is extended by the MiniLib class which uses this and a few other interfaces extensively!

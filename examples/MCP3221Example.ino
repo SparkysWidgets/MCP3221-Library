@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
 /*!
 
-MCP3221 Basic usage example file
+SW_MCP3221 Basic usage example file
 I2C Driver for Microchip's MCP3221 by Ryan Edwards, Sparkys Widgets
 
 Usage is pretty straightforward I provide some basic methods to get to the 12bit data from the adc
@@ -17,7 +17,7 @@ on documentation or you can even donate some BitCoin to 1NwPNsf6t5vpph6AYY5bg361
 
 
 #include <Wire.h>
-#include <MCP3221.h>
+#include <SW_MCP3221.h>
 
 
 byte i2cAddress = 0x4D;		// MCP3221 A5 in Dec 77 A0 = 72 A7 = 79)
