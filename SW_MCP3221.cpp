@@ -14,7 +14,7 @@
 */
 /////////////////////////////////////////////////////////////////////////////
 
-#include "MCP3221.h"
+#include "SW_MCP3221.h"
 
 MCP3221::MCP3221(uint8_t adcAddress, int adcVRef) {
   I2CADCAddress = adcAddress;
